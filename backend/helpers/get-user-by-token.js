@@ -1,11 +1,19 @@
-const jwt = require('jsonwebtoken')
-const User = require('../models/User')
+const jwt = require("jsonwebtoken");
 
-const getUserToken = async (token) => {
-    const decoded = jwt.verify(token, 'fatec-turma6-a2026')
-    const userId = decoded.id
-    const user = await User.findById({ _id: userId })
-    return user
-}
+const User = require("../models/User");
 
-module.exports = getUserToken
+// get user by jwt token
+const getUserByToken = async (token) => {
+  if (!token) return res.status(401).json({ error: "Acesso negado!" });
+
+  // find user
+  const decoded = jwt.verify(token, "nossosecret");
+
+  const userId = decoded.id;
+
+  const user = await User.findOne({ _id: userId });
+
+  return user;
+};
+
+module.exports = getUserByToken;
