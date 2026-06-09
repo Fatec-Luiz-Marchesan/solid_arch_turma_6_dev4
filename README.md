@@ -2767,3 +2767,2857 @@ Pesquisar, configurar e integrar Sentry para monitoramento de erros na arquitetu
 
 ---
 
+
+
+---
+
+# Fase 2: Expansão e Aprimoramento (Tarefas 121 a 240)
+
+Esta seção introduz **mais 120 tarefas**, abordando novas dependências, co-dependências com as tarefas anteriores (1 a 120), implementações de segurança, testes em validações e introdução de tecnologias avançadas no sistema legado em Node.js com Mongoose.
+
+---
+
+### Task 121: Adicionar testes de Integração para helpers e validações de Breed
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Breed.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Breed.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/breed-validation-integração`
+
+---
+
+### Task 122: Aprimoramento no Controller de Payment (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 40.
+
+**Descrição Técnica:**
+Interferir no Controller de Payment para implementar aprimoramento de segurança, otimizando a entrega da Task 40.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Payment mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/payment-enhance-controller`
+
+---
+
+### Task 123: Aprimoramento no Controller de Backup (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 113.
+
+**Descrição Técnica:**
+Interferir no Controller de Backup para implementar ajuste de rota, otimizando a entrega da Task 113.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Backup mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/backup-enhance-controller`
+
+---
+
+### Task 124: Adicionar testes de Unidade para helpers e validações de Location
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Location.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Location.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/location-validation-unidade`
+
+---
+
+### Task 125: Adicionar testes de Unidade para helpers e validações de Review
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 74.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Review relacionadas ao que foi feito na Task 74.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Review.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/review-validation-unidade`
+
+---
+
+### Task 126: Aprimoramento no Model de Payment (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Model de Payment para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Payment mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/payment-enhance-model`
+
+---
+
+### Task 127: Adicionar testes de Integração para helpers e validações de Profile
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Profile.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Profile.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/profile-validation-integração`
+
+---
+
+### Task 128: Adicionar testes de Integração para helpers e validações de User
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 89.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de User relacionadas ao que foi feito na Task 89.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de User.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/user-validation-integração`
+
+---
+
+### Task 129: Adicionar testes de Unidade para helpers e validações de Payment
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 15.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Payment relacionadas ao que foi feito na Task 15.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Payment.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/payment-validation-unidade`
+
+---
+
+### Task 130: Aprimoramento no Model de Analytics (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 25.
+
+**Descrição Técnica:**
+Interferir no Model de Analytics para implementar ajuste de rota, otimizando a entrega da Task 25.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Analytics mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/analytics-enhance-model`
+
+---
+
+### Task 131: Aprimoramento no Controller de Pet (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 25.
+
+**Descrição Técnica:**
+Interferir no Controller de Pet para implementar ajuste de rota, otimizando a entrega da Task 25.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Pet mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/pet-enhance-controller`
+
+---
+
+### Task 132: Adicionar testes de Integração para helpers e validações de Payment
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Payment.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Payment.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/payment-validation-integração`
+
+---
+
+### Task 133: Adicionar testes de Unidade para helpers e validações de Profile
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 91.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Profile relacionadas ao que foi feito na Task 91.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Profile.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/profile-validation-unidade`
+
+---
+
+### Task 134: Adicionar testes de Integração para helpers e validações de Upload
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Upload.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Upload.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/upload-validation-integração`
+
+---
+
+### Task 135: Adicionar testes de Integração para helpers e validações de User
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 93.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de User relacionadas ao que foi feito na Task 93.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de User.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/user-validation-integração`
+
+---
+
+### Task 136: Aprimoramento no Model de Auth (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Model de Auth para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Auth mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/auth-enhance-model`
+
+---
+
+### Task 137: Adicionar testes de Unidade para helpers e validações de Payment
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 115.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Payment relacionadas ao que foi feito na Task 115.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Payment.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/payment-validation-unidade`
+
+---
+
+### Task 138: Aprimoramento no Model de Auth (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Model de Auth para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Auth mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/auth-enhance-model`
+
+---
+
+### Task 139: Adicionar testes de Unidade para helpers e validações de Export
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 2.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Export relacionadas ao que foi feito na Task 2.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Export.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/export-validation-unidade`
+
+---
+
+### Task 140: Aprimoramento no Model de Upload (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 116.
+
+**Descrição Técnica:**
+Interferir no Model de Upload para implementar ajuste de rota, otimizando a entrega da Task 116.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Upload mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/upload-enhance-model`
+
+---
+
+### Task 141: Aprimoramento no Controller de Diet (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 7.
+
+**Descrição Técnica:**
+Interferir no Controller de Diet para implementar ajuste de rota, otimizando a entrega da Task 7.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Diet mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/diet-enhance-controller`
+
+---
+
+### Task 142: Adicionar testes de Unidade para helpers e validações de Message
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 26.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Message relacionadas ao que foi feito na Task 26.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Message.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/message-validation-unidade`
+
+---
+
+### Task 143: Adicionar testes de Unidade para helpers e validações de Vaccine
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 101.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Vaccine relacionadas ao que foi feito na Task 101.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Vaccine.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/vaccine-validation-unidade`
+
+---
+
+### Task 144: Adicionar testes de Integração para helpers e validações de Message
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Message.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Message.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/message-validation-integração`
+
+---
+
+### Task 145: Aprimoramento no Controller de Report (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 96.
+
+**Descrição Técnica:**
+Interferir no Controller de Report para implementar ajuste de rota, otimizando a entrega da Task 96.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Report mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/report-enhance-controller`
+
+---
+
+### Task 146: Adicionar testes de Integração para helpers e validações de Backup
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 68.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Backup relacionadas ao que foi feito na Task 68.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Backup.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/backup-validation-integração`
+
+---
+
+### Task 147: Aprimoramento no Controller de Message (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Controller de Message para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Message mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/message-enhance-controller`
+
+---
+
+### Task 148: Adicionar testes de Unidade para helpers e validações de Breed
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Breed.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Breed.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/breed-validation-unidade`
+
+---
+
+### Task 149: Adicionar testes de Integração para helpers e validações de User
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 76.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de User relacionadas ao que foi feito na Task 76.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de User.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/user-validation-integração`
+
+---
+
+### Task 150: Adicionar testes de Integração para helpers e validações de Backup
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Backup.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Backup.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/backup-validation-integração`
+
+---
+
+### Task 151: Implementação Completa e estruturada de novo fluxo de Breed
+**Pontos (Fibonacci):** 21
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Breed.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-breed-workflow`
+
+---
+
+### Task 152: Adicionar testes de Unidade para helpers e validações de Audit
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Audit.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Audit.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/audit-validation-unidade`
+
+---
+
+### Task 153: Implementação Completa e estruturada de novo fluxo de User
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 37.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo User, complementando e estendendo a lógica introduzida na Task 37.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-user-workflow`
+
+---
+
+### Task 154: Aprimoramento no Controller de User (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Controller de User para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de User mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/user-enhance-controller`
+
+---
+
+### Task 155: Aprimoramento no Model de Security (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 47.
+
+**Descrição Técnica:**
+Interferir no Model de Security para implementar aprimoramento de segurança, otimizando a entrega da Task 47.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Security mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/security-enhance-model`
+
+---
+
+### Task 156: Aprimoramento no Model de Analytics (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Model de Analytics para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Analytics mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/analytics-enhance-model`
+
+---
+
+### Task 157: Aprimoramento no Controller de Adoption (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Controller de Adoption para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Adoption mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/adoption-enhance-controller`
+
+---
+
+### Task 158: Aprimoramento no Model de Vaccine (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 28.
+
+**Descrição Técnica:**
+Interferir no Model de Vaccine para implementar ajuste de rota, otimizando a entrega da Task 28.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Vaccine mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/vaccine-enhance-model`
+
+---
+
+### Task 159: Aprimoramento no Controller de Analytics (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Controller de Analytics para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Analytics mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/analytics-enhance-controller`
+
+---
+
+### Task 160: Adicionar testes de Integração para helpers e validações de Event
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Event.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Event.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/event-validation-integração`
+
+---
+
+### Task 161: Implementação Completa e estruturada de novo fluxo de Settings
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 63.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Settings, complementando e estendendo a lógica introduzida na Task 63.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-settings-workflow`
+
+---
+
+### Task 162: Adicionar testes de Unidade para helpers e validações de Diet
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 106.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Diet relacionadas ao que foi feito na Task 106.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Diet.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/diet-validation-unidade`
+
+---
+
+### Task 163: Adicionar testes de Integração para helpers e validações de Backup
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 86.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Backup relacionadas ao que foi feito na Task 86.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Backup.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/backup-validation-integração`
+
+---
+
+### Task 164: Aprimoramento no Controller de Backup (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Controller de Backup para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Backup mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/backup-enhance-controller`
+
+---
+
+### Task 165: Implementação Avançada e complexa de novo fluxo de Profile
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 59.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Profile, complementando e estendendo a lógica introduzida na Task 59.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-profile-workflow`
+
+---
+
+### Task 166: Adotar nova tecnologia - KafKa para eventos asíncronos
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 77.
+
+**Descrição Técnica:**
+Implementar KafKa para eventos asíncronos no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 77.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Auth).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-kafka`
+
+---
+
+### Task 167: Adicionar testes de Integração para helpers e validações de Export
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 51.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Export relacionadas ao que foi feito na Task 51.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Export.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/export-validation-integração`
+
+---
+
+### Task 168: Aprimoramento no Controller de Diet (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 61.
+
+**Descrição Técnica:**
+Interferir no Controller de Diet para implementar ajuste de rota, otimizando a entrega da Task 61.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Diet mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/diet-enhance-controller`
+
+---
+
+### Task 169: Implementação Completa e estruturada de novo fluxo de Backup
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 15.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Backup, complementando e estendendo a lógica introduzida na Task 15.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-backup-workflow`
+
+---
+
+### Task 170: Adicionar testes de Unidade para helpers e validações de Event
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 15.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Event relacionadas ao que foi feito na Task 15.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Event.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/event-validation-unidade`
+
+---
+
+### Task 171: Aprimoramento no Model de Upload (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 7.
+
+**Descrição Técnica:**
+Interferir no Model de Upload para implementar ajuste de rota, otimizando a entrega da Task 7.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Upload mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/upload-enhance-model`
+
+---
+
+### Task 172: Adicionar testes de Unidade para helpers e validações de Review
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 39.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Review relacionadas ao que foi feito na Task 39.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Review.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/review-validation-unidade`
+
+---
+
+### Task 173: Adotar nova tecnologia - Puppeteer para geração de PDFs
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 89.
+
+**Descrição Técnica:**
+Implementar Puppeteer para geração de PDFs no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 89.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Diet).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-puppeteer`
+
+---
+
+### Task 174: Aprimoramento no Model de Review (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 73.
+
+**Descrição Técnica:**
+Interferir no Model de Review para implementar aprimoramento de segurança, otimizando a entrega da Task 73.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Review mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/review-enhance-model`
+
+---
+
+### Task 175: Adotar nova tecnologia - Passport.js para OAuth
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 37.
+
+**Descrição Técnica:**
+Implementar Passport.js para OAuth no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 37.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Report).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-passport.js`
+
+---
+
+### Task 176: Implementação Completa e estruturada de novo fluxo de Backup
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 38.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Backup, complementando e estendendo a lógica introduzida na Task 38.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-backup-workflow`
+
+---
+
+### Task 177: Implementação Completa e estruturada de novo fluxo de Report
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 62.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Report, complementando e estendendo a lógica introduzida na Task 62.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-report-workflow`
+
+---
+
+### Task 178: Adicionar testes de Unidade para helpers e validações de Payment
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 71.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Payment relacionadas ao que foi feito na Task 71.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Payment.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/payment-validation-unidade`
+
+---
+
+### Task 179: Implementação Completa e estruturada de novo fluxo de Review
+**Pontos (Fibonacci):** 21
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Review.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-review-workflow`
+
+---
+
+### Task 180: Aprimoramento no Controller de Location (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 74.
+
+**Descrição Técnica:**
+Interferir no Controller de Location para implementar aprimoramento de segurança, otimizando a entrega da Task 74.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Location mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/location-enhance-controller`
+
+---
+
+### Task 181: Aprimoramento no Model de Backup (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 66.
+
+**Descrição Técnica:**
+Interferir no Model de Backup para implementar aprimoramento de segurança, otimizando a entrega da Task 66.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Backup mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/backup-enhance-model`
+
+---
+
+### Task 182: Implementação Avançada e complexa de novo fluxo de Profile
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 64.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Profile, complementando e estendendo a lógica introduzida na Task 64.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-profile-workflow`
+
+---
+
+### Task 183: Adicionar testes de Unidade para helpers e validações de Billing
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Billing.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Billing.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/billing-validation-unidade`
+
+---
+
+### Task 184: Implementação Avançada e complexa de novo fluxo de Report
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 8.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Report, complementando e estendendo a lógica introduzida na Task 8.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-report-workflow`
+
+---
+
+### Task 185: Aprimoramento no Model de Audit (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 54.
+
+**Descrição Técnica:**
+Interferir no Model de Audit para implementar ajuste de rota, otimizando a entrega da Task 54.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Audit mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/audit-enhance-model`
+
+---
+
+### Task 186: Implementação Completa e estruturada de novo fluxo de Audit
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 14.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Audit, complementando e estendendo a lógica introduzida na Task 14.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-audit-workflow`
+
+---
+
+### Task 187: Adicionar testes de Unidade para helpers e validações de Report
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Report.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Report.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/report-validation-unidade`
+
+---
+
+### Task 188: Aprimoramento no Controller de Location (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 73.
+
+**Descrição Técnica:**
+Interferir no Controller de Location para implementar aprimoramento de segurança, otimizando a entrega da Task 73.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Location mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/location-enhance-controller`
+
+---
+
+### Task 189: Implementação Avançada e complexa de novo fluxo de Backup
+**Pontos (Fibonacci):** 35
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Backup.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-backup-workflow`
+
+---
+
+### Task 190: Implementação Avançada e complexa de novo fluxo de Location
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 75.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Location, complementando e estendendo a lógica introduzida na Task 75.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-location-workflow`
+
+---
+
+### Task 191: Aprimoramento no Model de Vaccine (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Model de Vaccine para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Vaccine mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/vaccine-enhance-model`
+
+---
+
+### Task 192: Adicionar testes de Integração para helpers e validações de Payment
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 18.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Payment relacionadas ao que foi feito na Task 18.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Payment.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/payment-validation-integração`
+
+---
+
+### Task 193: Adicionar testes de Integração para helpers e validações de Upload
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Upload.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Upload.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/upload-validation-integração`
+
+---
+
+### Task 194: Adotar nova tecnologia - KafKa para eventos asíncronos
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 17.
+
+**Descrição Técnica:**
+Implementar KafKa para eventos asíncronos no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 17.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Review).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-kafka`
+
+---
+
+### Task 195: Adicionar testes de Unidade para helpers e validações de Settings
+**Pontos (Fibonacci):** 3
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Settings.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Settings.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/settings-validation-unidade`
+
+---
+
+### Task 196: Adotar nova tecnologia - Nodemailer avançado com templates
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 36.
+
+**Descrição Técnica:**
+Implementar Nodemailer avançado com templates no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 36.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Analytics).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-nodemailer`
+
+---
+
+### Task 197: Implementação Avançada e complexa de novo fluxo de Location
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 44.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Location, complementando e estendendo a lógica introduzida na Task 44.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-location-workflow`
+
+---
+
+### Task 198: Adicionar testes de Unidade para helpers e validações de Auth
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 71.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Auth relacionadas ao que foi feito na Task 71.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Auth.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/auth-validation-unidade`
+
+---
+
+### Task 199: Implementação Completa e estruturada de novo fluxo de User
+**Pontos (Fibonacci):** 21
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo User.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-user-workflow`
+
+---
+
+### Task 200: Implementação Completa e estruturada de novo fluxo de Backup
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 5.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Backup, complementando e estendendo a lógica introduzida na Task 5.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-backup-workflow`
+
+---
+
+### Task 201: Aprimoramento no Model de Audit (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 23.
+
+**Descrição Técnica:**
+Interferir no Model de Audit para implementar aprimoramento de segurança, otimizando a entrega da Task 23.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Audit mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/audit-enhance-model`
+
+---
+
+### Task 202: Aprimoramento no Model de Profile (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 20.
+
+**Descrição Técnica:**
+Interferir no Model de Profile para implementar ajuste de rota, otimizando a entrega da Task 20.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Profile mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/profile-enhance-model`
+
+---
+
+### Task 203: Implementação Completa e estruturada de novo fluxo de Settings
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 26.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Settings, complementando e estendendo a lógica introduzida na Task 26.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-settings-workflow`
+
+---
+
+### Task 204: Adicionar testes de Unidade para helpers e validações de Admin
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 67.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Admin relacionadas ao que foi feito na Task 67.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Admin.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/admin-validation-unidade`
+
+---
+
+### Task 205: Adicionar testes de Integração para helpers e validações de Vaccine
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 65.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Vaccine relacionadas ao que foi feito na Task 65.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Vaccine.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/vaccine-validation-integração`
+
+---
+
+### Task 206: Adicionar testes de Integração para helpers e validações de Event
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 80.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Event relacionadas ao que foi feito na Task 80.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Event.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/event-validation-integração`
+
+---
+
+### Task 207: Adicionar testes de Integração para helpers e validações de Event
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 53.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Event relacionadas ao que foi feito na Task 53.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Event.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/event-validation-integração`
+
+---
+
+### Task 208: Implementação Avançada e complexa de novo fluxo de Backup
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 113.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Backup, complementando e estendendo a lógica introduzida na Task 113.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-backup-workflow`
+
+---
+
+### Task 209: Adicionar testes de Unidade para helpers e validações de Notification
+**Pontos (Fibonacci):** 3
+**Dependência / Ref:** Melhoria estruturada baseada na Task 68.
+
+**Descrição Técnica:**
+Criar suíte de testes de unidade focada nos helpers, middlewares e funções de validação de Notification relacionadas ao que foi feito na Task 68.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de unidade.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Notification.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/notification-validation-unidade`
+
+---
+
+### Task 210: Aprimoramento no Controller de Backup (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 46.
+
+**Descrição Técnica:**
+Interferir no Controller de Backup para implementar ajuste de rota, otimizando a entrega da Task 46.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Backup mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/backup-enhance-controller`
+
+---
+
+### Task 211: Aprimoramento no Controller de Event (ajuste de rota)
+**Pontos (Fibonacci):** 8
+
+**Descrição Técnica:**
+Interferir no Controller de Event para implementar ajuste de rota.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Event mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/event-enhance-controller`
+
+---
+
+### Task 212: Implementação Avançada e complexa de novo fluxo de Adoption
+**Pontos (Fibonacci):** 35
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Adoption.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-adoption-workflow`
+
+---
+
+### Task 213: Adotar nova tecnologia - Multer com AWS S3
+**Pontos (Fibonacci):** 54
+
+**Descrição Técnica:**
+Implementar Multer com AWS S3 no projeto, modernizando a stack do sistema legado.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Admin).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-multer`
+
+---
+
+### Task 214: Aprimoramento no Model de Breed (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Model de Breed para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Breed mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/breed-enhance-model`
+
+---
+
+### Task 215: Implementação Avançada e complexa de novo fluxo de Admin
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 35.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Admin, complementando e estendendo a lógica introduzida na Task 35.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-admin-workflow`
+
+---
+
+### Task 216: Aprimoramento no Model de Adoption (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 62.
+
+**Descrição Técnica:**
+Interferir no Model de Adoption para implementar aprimoramento de segurança, otimizando a entrega da Task 62.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Adoption mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/adoption-enhance-model`
+
+---
+
+### Task 217: Aprimoramento no Controller de Security (ajuste de rota)
+**Pontos (Fibonacci):** 8
+**Dependência / Ref:** Melhoria estruturada baseada na Task 21.
+
+**Descrição Técnica:**
+Interferir no Controller de Security para implementar ajuste de rota, otimizando a entrega da Task 21.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Security mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/security-enhance-controller`
+
+---
+
+### Task 218: Adotar nova tecnologia - KafKa para eventos asíncronos
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 40.
+
+**Descrição Técnica:**
+Implementar KafKa para eventos asíncronos no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 40.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Security).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-kafka`
+
+---
+
+### Task 219: Adicionar testes de Integração para helpers e validações de Adoption
+**Pontos (Fibonacci):** 5
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Adoption.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Adoption.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/adoption-validation-integração`
+
+---
+
+### Task 220: Adicionar testes de Integração para helpers e validações de Vaccine
+**Pontos (Fibonacci):** 5
+**Dependência / Ref:** Melhoria estruturada baseada na Task 1.
+
+**Descrição Técnica:**
+Criar suíte de testes de integração focada nos helpers, middlewares e funções de validação de Vaccine relacionadas ao que foi feito na Task 1.
+
+**Instruções de Requisitos:**
+- Mapear regras de validação atuais do Mongoose.
+- Criar mocks para os testes de integração.
+- Garantir que nada novo seja implementado, apenas testes do código legado ou anterior.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD: Aplicar o padrão Arrange, Act, Assert (AAA).
+- SOLID: Testar responsabilidades isoladas (SRP).
+
+**Objetivos de Entrega:**
+- Maior confiabilidade nas validações de Vaccine.
+- Pull Request com no mínimo 5 novos casos de teste.
+
+**Sugestão de nome de branch:** `test/vaccine-validation-integração`
+
+---
+
+### Task 221: Adotar nova tecnologia - Grafana para dashboards
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 1.
+
+**Descrição Técnica:**
+Implementar Grafana para dashboards no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 1.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Message).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-grafana`
+
+---
+
+### Task 222: Aprimoramento no Controller de Admin (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 47.
+
+**Descrição Técnica:**
+Interferir no Controller de Admin para implementar aprimoramento de segurança, otimizando a entrega da Task 47.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Admin mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/admin-enhance-controller`
+
+---
+
+### Task 223: Implementação Avançada e complexa de novo fluxo de Security
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 5.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Security, complementando e estendendo a lógica introduzida na Task 5.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-security-workflow`
+
+---
+
+### Task 224: Aprimoramento no Model de Audit (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 120.
+
+**Descrição Técnica:**
+Interferir no Model de Audit para implementar aprimoramento de segurança, otimizando a entrega da Task 120.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Audit mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/audit-enhance-model`
+
+---
+
+### Task 225: Implementação Avançada e complexa de novo fluxo de Settings
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 18.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Settings, complementando e estendendo a lógica introduzida na Task 18.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-settings-workflow`
+
+---
+
+### Task 226: Aprimoramento no Model de Profile (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 91.
+
+**Descrição Técnica:**
+Interferir no Model de Profile para implementar aprimoramento de segurança, otimizando a entrega da Task 91.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Profile mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/profile-enhance-model`
+
+---
+
+### Task 227: Implementação Completa e estruturada de novo fluxo de Admin
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 72.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Admin, complementando e estendendo a lógica introduzida na Task 72.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-admin-workflow`
+
+---
+
+### Task 228: Implementação Avançada e complexa de novo fluxo de Adoption
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 41.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Adoption, complementando e estendendo a lógica introduzida na Task 41.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-adoption-workflow`
+
+---
+
+### Task 229: Aprimoramento no Model de Diet (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 106.
+
+**Descrição Técnica:**
+Interferir no Model de Diet para implementar aprimoramento de segurança, otimizando a entrega da Task 106.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Diet mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/diet-enhance-model`
+
+---
+
+### Task 230: Implementação Completa e estruturada de novo fluxo de Adoption
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 74.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Adoption, complementando e estendendo a lógica introduzida na Task 74.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-adoption-workflow`
+
+---
+
+### Task 231: Aprimoramento no Controller de Notification (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Controller de Notification para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Controller.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Controller não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Notification mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/notification-enhance-controller`
+
+---
+
+### Task 232: Implementação Avançada e complexa de novo fluxo de Review
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 81.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Review, complementando e estendendo a lógica introduzida na Task 81.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-review-workflow`
+
+---
+
+### Task 233: Aprimoramento no Model de Audit (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+**Dependência / Ref:** Melhoria estruturada baseada na Task 100.
+
+**Descrição Técnica:**
+Interferir no Model de Audit para implementar aprimoramento de segurança, otimizando a entrega da Task 100.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Audit mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/audit-enhance-model`
+
+---
+
+### Task 234: Adotar nova tecnologia - Multer com AWS S3
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 95.
+
+**Descrição Técnica:**
+Implementar Multer com AWS S3 no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 95.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Upload).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-multer`
+
+---
+
+### Task 235: Implementação Completa e estruturada de novo fluxo de Message
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 33.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Message, complementando e estendendo a lógica introduzida na Task 33.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-message-workflow`
+
+---
+
+### Task 236: Implementação Avançada e complexa de novo fluxo de Settings
+**Pontos (Fibonacci):** 35
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Settings.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-settings-workflow`
+
+---
+
+### Task 237: Adotar nova tecnologia - Puppeteer para geração de PDFs
+**Pontos (Fibonacci):** 54
+**Dependência / Ref:** Melhoria estruturada baseada na Task 104.
+
+**Descrição Técnica:**
+Implementar Puppeteer para geração de PDFs no projeto, modernizando a stack do sistema legado e resolvendo gargalos técnicos levantados desde a Task 104.
+
+**Instruções de Requisitos:**
+- Instalar o módulo no Node.js.
+- Isolar a tecnologia usando o padrão Adapter/Wrapper.
+- Aplicar a tecnologia em pelo menos um caso de uso real (ex: Vaccine).
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: A tecnologia (Framework/Driver) fica na camada mais externa (Infrastructure).
+- Liskov Substitution Principle: As interfaces não devem ser afetadas pela troca de implementação por baixo.
+
+**Objetivos de Entrega:**
+- Nova tecnologia operando em ambiente de desenvolvimento e testes.
+- Documentação técnica de como a equipe deve utilizar a nova ferramenta.
+
+**Sugestão de nome de branch:** `tech/adopt-puppeteer`
+
+---
+
+### Task 238: Implementação Completa e estruturada de novo fluxo de Adoption
+**Pontos (Fibonacci):** 21
+**Dependência / Ref:** Melhoria estruturada baseada na Task 13.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Adoption, complementando e estendendo a lógica introduzida na Task 13.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-adoption-workflow`
+
+---
+
+### Task 239: Implementação Avançada e complexa de novo fluxo de Billing
+**Pontos (Fibonacci):** 35
+**Dependência / Ref:** Melhoria estruturada baseada na Task 25.
+
+**Descrição Técnica:**
+Desenvolvimento ponta a ponta de uma funcionalidade central para o módulo Billing, complementando e estendendo a lógica introduzida na Task 25.
+
+**Instruções de Requisitos:**
+- Implementar novos Models no Mongoose e suas relações.
+- Criar rotas no Express/Node protegidas por autenticação.
+- Criar validações e testes automatizados completos para o novo endpoint.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- TDD e Clean Architecture: Iniciar pelos testes do Use Case, definindo as entidades antes de expor os Controllers.
+- Dependency Inversion: Injetar repositórios nos casos de uso.
+
+**Objetivos de Entrega:**
+- Funcionalidade entregue e documentada no Swagger/Postman.
+- Integração contínua não acusando quebras (build verde).
+
+**Sugestão de nome de branch:** `feat/new-billing-workflow`
+
+---
+
+### Task 240: Aprimoramento no Model de Message (aprimoramento de segurança)
+**Pontos (Fibonacci):** 13
+
+**Descrição Técnica:**
+Interferir no Model de Message para implementar aprimoramento de segurança.
+
+**Instruções de Requisitos:**
+- Analisar a implementação atual do Model.
+- Adicionar restrições de payload, sanitização de inputs ou refatorar métodos pesados.
+- Atualizar ou adicionar testes cobrindo a nova restrição.
+
+**Instruções Arquitetônicas (Clean Arch / SOLID / TDD):**
+- Clean Architecture: O Model não deve conter regras de banco de dados diretamente, delegar para a camada correspondente.
+- Open/Closed Principle: Estender o comportamento sem quebrar os contratos existentes.
+
+**Objetivos de Entrega:**
+- Rota/Model de Message mais segura e otimizada.
+- Testes passando com a nova condição de borda.
+
+**Sugestão de nome de branch:** `feat/message-enhance-model`
+
+---
+
