@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./index.js localhost 5000",
-    "test:socket": "node ./infra/realtime/socket-smoke-test.js"
+    "test:socket": "node ./infra/realtime/socket-smoke-test.js",
+    "test:docker": "bash ../scripts/docker-smoke-test.sh"
   },
   "author": "Matheus <matheus@horadecodar.com.br> (http://www.horadecodar.com.br/)",
   "license": "MIT",

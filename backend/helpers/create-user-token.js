@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const AppConfig = require("../infra/config");
 
 const createUserToken = async (user, req, res) => {
   const token = jwt.sign(
@@ -7,7 +8,7 @@ const createUserToken = async (user, req, res) => {
       name: user.name,
       id: user._id,
     },
-    "nossosecret"
+    AppConfig.jwtSecret
   );
 
   // return token
