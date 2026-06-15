@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./index.js localhost 5000",
-    "test:socket": "node ./infra/realtime/socket-smoke-test.js"
+    "test:socket": "node ./infra/realtime/socket-smoke-test.js",
+    "test:docker": "bash ../scripts/docker-smoke-test.sh"
   },
   "author": "Matheus <matheus@horadecodar.com.br> (http://www.horadecodar.com.br/)",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-rate-limit": "^7.4.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^6.0.6",
     "multer": "^2.1.1",

@@ -2,16 +2,42 @@ const express = require('express')
 const cors = require('cors')
 const http = require('http')
 
+// Porta de configuração (ver infra/config). Quem injeta os valores reais
+// (porta, Mongo URI, CORS origin etc.) é o ambiente externo - localmente
+// pode ser o .env / shell, dentro do docker-compose são as variáveis de
+// ambiente do serviço "backend".
+const AppConfig = require('./infra/config')
+
 const app = express()
 
 // Config JSON response
 app.use(express.json())
 
 // Solve CORS
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+app.use(cors({ credentials: true, origin: AppConfig.corsOrigin }))
 
 // Public folder for images and Socket.io PoC page
 app.use(express.static('public'))
+
+// Rate limiting (infra/security) - mitiga brute-force / abuso das rotas
+// que fazem autorização e acesso ao banco (PetRouters e UserRouters).
+// Aplicado globalmente, antes das rotas, como qualquer outro middleware
+// de infraestrutura do Express.
+const { apiLimiter } = require('./infra/security/rateLimiter')
+app.use(apiLimiter)
+
+// Healthcheck simples - usado pelo HEALTHCHECK do Dockerfile/docker-compose
+// e pelo smoke test de Docker (ver scripts/docker-smoke-test.sh). Não
+// depende de nenhuma camada de negócio, só confirma que o processo Node
+// está de pé e respondendo.
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    service: 'getapet-backend',
+    env: AppConfig.nodeEnv,
+    timestamp: new Date().toISOString(),
+  })
+})
 
 // Routes
 const PetRoutes = require('./routers/PetRouters')
@@ -31,8 +57,8 @@ const server = http.createServer(app)
 // Nenhum Model, Use Case ou Controller precisa conhecer este import -
 // eles recebem apenas a instancia `realtimeNotifier` (ver infra/realtime).
 const { realtimeNotifier } = require('./infra/realtime')
-realtimeNotifier.init(server, { corsOrigin: 'http://localhost:3000' })
+realtimeNotifier.init(server, { corsOrigin: AppConfig.corsOrigin })
 
-server.listen(5000, () => {
-  console.log('Servidor rodando na porta 5000 (HTTP + Socket.io)')
+server.listen(AppConfig.port, () => {
+  console.log(`Servidor rodando na porta ${AppConfig.port} (HTTP + Socket.io)`)
 })
