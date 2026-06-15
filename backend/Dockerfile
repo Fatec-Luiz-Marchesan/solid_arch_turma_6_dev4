@@ -15,30 +15,26 @@
 #   - production   -> imagem enxuta (só deps de produção), usada em CI
 #                     e como base para deploy.
 
-############################
+
 # Base: arquivos de manifesto + WORKDIR comuns aos demais estágios
-############################
 FROM node:20-slim AS base
 WORKDIR /usr/src/app
 COPY package*.json ./
 
-############################
+
 # Dependências completas (inclui devDependencies: nodemon, socket.io-client)
-############################
 FROM base AS dependencies
 RUN npm install
 
-############################
+
 # Dependências de produção apenas
-############################
 FROM base AS dependencies-prod
 RUN npm install --omit=dev
 
-############################
+
 # Estágio de desenvolvimento
 # - código-fonte é montado via bind mount pelo docker-compose
 # - nodemon reinicia o servidor a cada alteração
-############################
 FROM base AS development
 ENV NODE_ENV=development
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
@@ -46,11 +42,10 @@ COPY . .
 EXPOSE 5000
 CMD ["npm", "run", "start"]
 
-############################
+
 # Estágio de produção (alvo padrão deste Dockerfile)
 # - somente dependências de produção
 # - roda `node index.js` diretamente, sem nodemon
-############################
 FROM base AS production
 ENV NODE_ENV=production
 COPY --from=dependencies-prod /usr/src/app/node_modules ./node_modules
@@ -61,7 +56,6 @@ COPY . .
 RUN mkdir -p public/images/pets public/images/users
 
 EXPOSE 5000
-
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD node -e "require('http').get('http://127.0.0.1:5000/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
 

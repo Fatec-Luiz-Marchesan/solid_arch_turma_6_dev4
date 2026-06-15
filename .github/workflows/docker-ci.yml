@@ -52,4 +52,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Docker PoC (smoke test)
-        run: ./scripts/docker-smoke-test.sh
+        run: bash ./scripts/docker-smoke-test.sh

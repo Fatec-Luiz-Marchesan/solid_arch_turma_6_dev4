@@ -105,6 +105,27 @@ O workflow `.github/workflows/docker-ci.yml` roda em todo push para `main`/
   (`docker compose ... config`);
 - executa `scripts/docker-smoke-test.sh` (a mesma PoC descrita acima).
 
+### Checks de CI/CodeQL corrigidos
+
+Durante a abertura do PR, três checks falharam e foram corrigidos nesta
+mesma branch:
+
+1. **CodeQL - "Missing rate limiting" (8 alertas high)** em
+   `backend/routers/PetRouters.js` e `backend/routers/UserRouters.js`: as
+   rotas que fazem autorização (`helpers/check-token`) e acesso ao banco não
+   tinham nenhum rate limiter. Adicionado `backend/infra/security/rateLimiter.js`
+   (adapter baseado em `express-rate-limit`, mesmo padrão de
+   `infra/config`/`infra/realtime`):
+   - `apiLimiter` - aplicado globalmente em `index.js` (300 req/15min por IP),
+     cobrindo todas as rotas de `/pets` e `/users`;
+   - `authLimiter` - limite mais restrito (20 req/15min) aplicado em
+     `POST /users/register` e `POST /users/login` (mitiga brute-force).
+2. **Docker PoC - "Permission denied" ao rodar `./scripts/docker-smoke-test.sh`**:
+   o bit de execução do script não estava preservado. Corrigido o modo do
+   arquivo no git (`100755`) e o workflow passou a chamar
+   `bash ./scripts/docker-smoke-test.sh`, que funciona independente do bit
+   de execução.
+
 ### Resumo dos arquivos adicionados/alterados
 
 - `backend/Dockerfile`, `backend/.dockerignore`, `backend/.env.example`
@@ -115,10 +136,14 @@ O workflow `.github/workflows/docker-ci.yml` roda em todo push para `main`/
 - `scripts/docker-smoke-test.sh` (PoC)
 - `.github/workflows/docker-ci.yml`
 - `backend/infra/config/index.js` (nova "porta" de configuração)
+- `backend/infra/security/rateLimiter.js` (nova "porta" de rate limiting)
 - `backend/db/conn.js`, `backend/index.js`, `backend/helpers/check-token.js`,
   `backend/helpers/create-user-token.js`, `backend/helpers/get-user-by-token.js`,
   `backend/controllers/UserController.js` - passaram a usar
   `infra/config` em vez de valores fixos (`localhost`, `"nossosecret"`).
+- `backend/routers/UserRouters.js` - `authLimiter` em `/register` e `/login`.
+- `backend/package.json` - nova dependência `express-rate-limit` e script
+  `test:docker`.
 
 ---
 

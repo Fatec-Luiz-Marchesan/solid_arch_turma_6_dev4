@@ -19,6 +19,13 @@ app.use(cors({ credentials: true, origin: AppConfig.corsOrigin }))
 // Public folder for images and Socket.io PoC page
 app.use(express.static('public'))
 
+// Rate limiting (infra/security) - mitiga brute-force / abuso das rotas
+// que fazem autorização e acesso ao banco (PetRouters e UserRouters).
+// Aplicado globalmente, antes das rotas, como qualquer outro middleware
+// de infraestrutura do Express.
+const { apiLimiter } = require('./infra/security/rateLimiter')
+app.use(apiLimiter)
+
 // Healthcheck simples - usado pelo HEALTHCHECK do Dockerfile/docker-compose
 // e pelo smoke test de Docker (ver scripts/docker-smoke-test.sh). Não
 // depende de nenhuma camada de negócio, só confirma que o processo Node
