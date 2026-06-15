@@ -29,6 +29,7 @@
         height: 240px;
         overflow-y: auto;
         background: #fafafa;
+        white-space: pre-wrap;
         font-family: monospace;
         font-size: 13px;
       }
@@ -66,7 +67,8 @@
 
       function log(message) {
         const time = new Date().toLocaleTimeString()
-        logEl.innerHTML += `[${time}] ${message}\n`
+        const line = document.createTextNode(`[${time}] ${message}\n`)
+        logEl.appendChild(line)
         logEl.scrollTop = logEl.scrollHeight
       }
 
