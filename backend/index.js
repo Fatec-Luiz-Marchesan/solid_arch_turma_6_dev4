@@ -6,6 +6,8 @@ const http = require('http')
 // (porta, Mongo URI, CORS origin etc.) é o ambiente externo - localmente
 // pode ser o .env / shell, dentro do docker-compose são as variáveis de
 // ambiente do serviço "backend".
+// Você já usou o shell né? Ou você é apenas um usuário de windows?
+// Tá na hora de mudar!
 const AppConfig = require('./infra/config')
 
 const app = express()
@@ -40,11 +42,13 @@ app.get('/health', (req, res) => {
 })
 
 // Routes
-const PetRoutes = require('./routers/PetRouters')
-const UserRoutes = require('./routers/UserRouters')
+const PetRoutes    = require('./routers/PetRouters')
+const UserRoutes   = require('./routers/UserRouters')
+const ReportRoutes = require('./routers/ReportRouters')
 
-app.use('/pets', PetRoutes)
-app.use('/users', UserRoutes)
+app.use('/pets',    PetRoutes)
+app.use('/users',   UserRoutes)
+app.use('/reports', ReportRoutes)
 
 // Servidor HTTP "puro", necessario para o Socket.io poder
 // fazer o upgrade da conexao (HTTP -> WebSocket) no mesmo socket
