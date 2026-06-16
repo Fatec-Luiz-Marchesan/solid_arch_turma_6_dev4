@@ -80,3 +80,21 @@ volumes:
   mongo_data:
   backend_images_pets:
   backend_images_users:
+
+
+services:
+  prometheus:
+    images: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+     - prometheus
