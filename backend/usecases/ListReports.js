@@ -8,7 +8,14 @@
  * Não conhece Express (req/res).
  */
 
-const { Report } = require('../models/Report')
+const { Report, STATUS } = require('../models/Report')
+const ObjectId = require('mongoose').Types.ObjectId
+
+const TARGET_TYPES = ['pet', 'user']
+
+// Só aceita um valor se ele for uma string "primitiva" (não array, não
+// objeto) - é essa checagem que neutraliza payloads como {$ne: ...}.
+const isPlainString = (value) => typeof value === 'string'
 
 class ListReports {
   /**
@@ -20,12 +27,25 @@ class ListReports {
   async execute(filters = {}) {
     const query = {}
 // aqui tem um monte de if aninhado para procurar os reports pelo tipo
-    if (filters.targetType) query.targetType = filters.targetType
-    if (filters.targetId)   query.targetId   = filters.targetId
-    if (filters.status)     query.status      = filters.status
+    if (
+      isPlainString(filters.targetType) &&
+      TARGET_TYPES.includes(filters.targetType)
+    ) {
+      query.targetType = filters.targetType
+    }
+
+    if (isPlainString(filters.targetId) && ObjectId.isValid(filters.targetId)) {
+      query.targetId = new ObjectId(filters.targetId)
+    }
+
+    if (isPlainString(filters.status) && STATUS.includes(filters.status)) {
+      query.status = filters.status
+    }
 
     return Report.find(query).sort('-createdAt')
   }
 }
+
+module.exports = new ListReports()
 
 module.exports = new ListReports()

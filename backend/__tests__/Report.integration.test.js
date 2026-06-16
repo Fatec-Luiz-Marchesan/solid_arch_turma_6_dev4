@@ -2,12 +2,12 @@
  * __tests__/Report.integration.test.js
  *
  * Testes de integração das rotas de Report (Controller + Router + Use Cases).
- * Pra saber se está tudo funcionando certinho!
  * Usa supertest para simular chamadas HTTP sem subir um servidor de fato.
- * O banco é o MongoDB in-memory (testDb.js). Só pra testar
+ * O banco é o MongoDB in-memory (testDb.js).
  *
  * Os tokens JWT são gerados diretamente (sem precisar de POST /users/login)
  * para manter os testes focados na funcionalidade de Report.
+ * O JWT é muito necessário aqui pois ele faz a camada de segurança, do cebolão!
  */
 
 const request  = require('supertest')
@@ -21,15 +21,15 @@ const ReportRouters = require('../routers/ReportRouters')
 
 // ─── App mínimo para os testes (sem Socket.io, sem rate limiter global) ───────
 // Isso garante que os testes de integração sejam rápidos e focados.
-//Apenas pra ele não ficar iterando no vazio e os testes não concluírem!
+// pra não ficar usando processamento com o que não precisa!
 
 const app = express()
 app.use(express.json())
 app.use('/reports', ReportRouters)
 
-// ─── Helpers de autenticação 
+// ─── Helpers de autenticação ─────────────────────────────────────────────────
 
-const JWT_SECRET = 'nossosecret' // mesmo default de AppConfig só pra fazer o teste
+const JWT_SECRET = 'nossosecret' // mesmo default de AppConfig
 
 function makeToken(userId, name = 'Usuário Teste') {
   return jwt.sign({ id: userId, name }, JWT_SECRET)
@@ -39,18 +39,16 @@ function authHeader(token) {
   return { Authorization: `Bearer ${token}` }
 }
 
-// ─── Setup / teardown  Aonde desmonta tudo pra fazer o setup "teardown"
+// ─── Setup / teardown ────────────────────────────────────────────────────────
 
 beforeAll(connectTestDb)
 afterEach(clearTestDb)
 afterAll(disconnectTestDb)
 
-// ─── POST /reports Aqui se usa o método POTS! Você tem prestado atenção nas aulas?
+// ─── POST /reports ────────────────────────────────────────────────────────────
 
 describe('POST /reports', () => {
   let userId, token, validPayload
-
-//Testa uma denúncia por maus tratos! É só teste, mas eu estou de olho! Maus tratos é crime!
 
   beforeEach(() => {
     userId = new mongoose.Types.ObjectId().toString()
@@ -62,8 +60,6 @@ describe('POST /reports', () => {
       targetId: new mongoose.Types.ObjectId().toString(),
     }
   })
-
-// Testa se o report é válido! 
 
   test('201 - cria reporte válido', async () => {
     const res = await request(app)
@@ -103,8 +99,6 @@ describe('POST /reports', () => {
     expect(res.body.message).toMatch(/Motivo inválido/)
   })
 
-//Testa se o usuário deixa uma descrição ausente!
-
   test('422 - description ausente', async () => {
     const { description, ...sem } = validPayload
     const res = await request(app)
@@ -114,8 +108,6 @@ describe('POST /reports', () => {
     expect(res.status).toBe(422)
     expect(res.body.message).toMatch(/descrição/)
   })
-
-//Testa uma descrição muito curta! Alguém tentando fazer um tweet e não uma denúncia!
 
   test('422 - description com menos de 10 caracteres', async () => {
     const res = await request(app)
@@ -134,8 +126,6 @@ describe('POST /reports', () => {
     expect(res.status).toBe(422)
     expect(res.body.message).toMatch(/1000/)
   })
-
-  //com "alvo" ausente! Teste é teste! Na mão do usuário é beeem pior!
 
   test('422 - targetType ausente', async () => {
     const { targetType, ...sem } = validPayload
@@ -185,7 +175,7 @@ describe('POST /reports', () => {
   })
 })
 
-// ─── GET /reports Aqui testa o método GET!
+// ─── GET /reports ─ Olha o GET aqui! Você sabe usar o POSTMAN?
 
 describe('GET /reports', () => {
   let token
@@ -247,9 +237,23 @@ describe('GET /reports', () => {
     const res = await request(app).get('/reports')
     expect(res.status).toBe(401)
   })
+
+  test('200 - querystring de injection (?targetType[$ne]=null) é tratada com segurança', async () => {
+    // Express faz parse de "targetType[$ne]=null" como
+    // req.query.targetType = { '$ne': 'null' } (um objeto, não string).
+    // O Controller/Use Case devem descartar esse filtro em vez de
+    // repassá-lo ao Mongoose - e a rota deve responder normalmente.
+    // Você sabe usar rotas né!
+    const res = await request(app)
+      .get('/reports?targetType[$ne]=null')
+      .set(authHeader(token))
+
+    expect(res.status).toBe(200)
+    expect(res.body.reports).toHaveLength(2) // nenhum filtro foi aplicado
+  })
 })
 
-// ─── PATCH /reports/:id/status ────────────────────────────────────────────────
+// ─── PATCH /reports/:id/status ─ São os Status dos Tests!
 
 describe('PATCH /reports/:id/status', () => {
   let token, report
@@ -327,8 +331,6 @@ describe('PATCH /reports/:id/status', () => {
 
     expect(res.status).toBe(422)
   })
-
-  //Sem token aí não vai né meu amigo! Mas alguém tem que testar!
 
   test('401 - sem token', async () => {
     const res = await request(app)

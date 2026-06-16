@@ -1,16 +1,14 @@
 /**
  * ReportController
  *
- * Camada HTTP (tratamento de req/res). Aquela ruim faltando o S Porta 80
+ * Camada HTTP (tratamento de req/res).
  * Não contém regra de negócio - delega tudo para os Use Cases.
- * 
  * Responsável apenas por:
  *   1. Extrair e validar dados da requisição (obrigatoriedade, formato).
  *   2. Chamar o Use Case correspondente.
  *   3. Formatar a resposta HTTP.
  *
- * Clean Architecture: Controller > Use Case > Model > você sabe coisa do MVC 
- * que a gente aprende na faculdade
+ * Clean Architecture: Controller → Use Case → Model
  */
 
 const { REASONS } = require('../models/Report')
@@ -33,7 +31,7 @@ module.exports = class ReportController {
 
       // --- validações de entrada (responsabilidade do Controller) ---
       if (!reason) {
-        return res.status(422).json({ message: 'O motivo é obrigatório. Preciso explicar mais?' })
+        return res.status(422).json({ message: 'O motivo é obrigatório.' })
       }
 
       if (!REASONS.includes(reason)) {
@@ -44,24 +42,24 @@ module.exports = class ReportController {
 
       if (!description || description.trim().length < 10) {
         return res.status(422).json({
-          message: 'A descrição é obrigatória e deve ter no mínimo 10 caracteres. Você não pode deixar em branco! O que está pensando?',
+          message: 'A descrição é obrigatória e deve ter no mínimo 10 caracteres. Você está tentando fazer um Tweet?',
         })
       }
 
       if (description.trim().length > 1000) {
         return res.status(422).json({
-          message: 'A descrição deve ter no máximo 1000 caracteres. Pelo menos isso! É uma descrição e não um tweet!',
+          message: 'A descrição deve ter no máximo 1000 caracteres. é uma denúncia e não um textão do facebook!',
         })
       }
 
       if (!targetType || !['pet', 'user'].includes(targetType)) {
         return res.status(422).json({
-          message: "O tipo do alvo é obrigatório e deve ser 'pet' ou 'user'! O sistema em si serve pra denunciar alguém! Você não pode denunciar o vazio!.",
+          message: "O tipo do alvo é obrigatório e deve ser 'pet' ou 'user'. Você tem que denunciar alguém, não o vazio!",
         })
       }
 
       if (!targetId || !ObjectId.isValid(targetId)) {
-        return res.status(422).json({ message: 'O ID do alvo é inválido.! Coloque um ID válido! Como você quer que eu ache?' })
+        return res.status(422).json({ message: 'O ID do alvo é inválido. Você está reportando certo?' })
       }
 
       // --- usuário autenticado (via token, mesmo padrão do PetController) ---
@@ -78,11 +76,11 @@ module.exports = class ReportController {
       })
 
       return res.status(201).json({
-        message: 'Reporte enviado com sucesso! Você acaba de dedurar alguém!',
+        message: 'Reporte enviado com sucesso!',
         report,
       })
     } catch (err) {
-      const status = err.message === 'Você não pode reportar a si mesmo. O quê que você está pensando? Endoidou?' ? 422 : 500
+      const status = err.message === 'Você não pode reportar a si mesmo. Que raios você está tentando?' ? 422 : 500
       return res.status(status).json({ message: err.message })
     }
   }
@@ -93,9 +91,14 @@ module.exports = class ReportController {
       const { targetType, targetId, status } = req.query
       const filters = {}
 
-      if (targetType) filters.targetType = targetType
-      if (targetId)   filters.targetId   = targetId
-      if (status)     filters.status     = status
+      // Defesa em profundidade: req.query pode conter arrays/objetos se o
+      // usuário mandar querystring "exótica" (ex: ?targetType[$ne]=null).
+      // Só repassamos o filtro se ele for uma string simples - qualquer
+      // outra coisa é descartada aqui. O Use Case (ListReports) também
+      // valida contra os enums, então a checagem é redundante de propósito.
+      if (typeof targetType === 'string') filters.targetType = targetType
+      if (typeof targetId === 'string')   filters.targetId   = targetId
+      if (typeof status === 'string')     filters.status     = status
 
       const reports = await listReports.execute(filters)
 
@@ -122,7 +125,7 @@ module.exports = class ReportController {
         report,
       })
     } catch (err) {
-      const notFound = err.message === 'Reporte não encontrado. Você está procurando certo?'
+      const notFound = err.message === 'Reporte não encontrado.'
       const invalid  = err.message.startsWith('Status inválido') ||
                        err.message === 'ID de reporte inválido.'
       const status   = notFound ? 404 : invalid ? 422 : 500

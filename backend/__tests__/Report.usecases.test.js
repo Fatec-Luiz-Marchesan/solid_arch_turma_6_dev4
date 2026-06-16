@@ -1,8 +1,9 @@
 /**
  * __tests__/Report.usecases.test.js
  *
- * Testes unitários dos Use Cases de Report. 
+ * Testes unitários dos Use Cases de Report.
  * TDD: testa as regras de negócio isoladas do Express.
+ * Todos automatizados, pra você não ter que ficar digitando!
  */
 
 const { connectTestDb, disconnectTestDb, clearTestDb } = require('./testDb')
@@ -23,7 +24,7 @@ const fakeReporter = () => ({
 
 const fakePetId = () => new mongoose.Types.ObjectId().toString()
 
-// ─── CreateReport  Aqui cria um report!
+// ─── CreateReport ──────────────────────────────────────────────────────────────
 
 describe('CreateReport', () => {
   test('cria um reporte válido e persiste no banco', async () => {
@@ -87,7 +88,7 @@ describe('CreateReport', () => {
   })
 })
 
-// ─── ListReports Aqui lista os reports caso você não entenda! Eu não gosto tanto de usar o inglês, mas em alguns casos ele é necessário!
+// ─── ListReports ───────────────────────────────────────────────────────────────
 
 describe('ListReports', () => {
   const seedReports = async () => {
@@ -161,9 +162,52 @@ describe('ListReports', () => {
     // O terceiro criado deve ser o primeiro da lista
     expect(reports[0].reason).toBe('informacao-falsa')
   })
+
+  // --- Segurança: prevenção de NoSQL injection (CodeQL js/sql-injection) --- parte do Cebolão!
+
+  test('ignora targetType que não seja string (objeto de operador Mongo)', async () => {
+    await seedReports()
+    const reports = await listReports.execute({
+      targetType: { $ne: null }, // tentativa de injection via objeto
+    })
+    // Filtro inválido é descartado -> comporta-se como "sem filtro"
+    expect(reports).toHaveLength(3)
+  })
+
+  test('ignora targetId que não seja string', async () => {
+    await seedReports()
+    const reports = await listReports.execute({
+      targetId: { $ne: null },
+    })
+    expect(reports).toHaveLength(3)
+  })
+
+  test('ignora targetId com formato inválido (não-ObjectId)', async () => {
+    await seedReports()
+    const reports = await listReports.execute({
+      targetId: 'nao-e-um-objectid',
+    })
+    expect(reports).toHaveLength(3)
+  })
+
+  test('ignora status fora do enum permitido', async () => {
+    await seedReports()
+    const reports = await listReports.execute({
+      status: { $gt: '' },
+    })
+    expect(reports).toHaveLength(3)
+  })
+
+  test('ignora targetType com valor string fora do enum', async () => {
+    await seedReports()
+    const reports = await listReports.execute({
+      targetType: 'comentario', // não é 'pet' nem 'user'
+    })
+    expect(reports).toHaveLength(3)
+  })
 })
 
-// ─── UpdateReportStatus ─ Aqui é para testar as atualizações do report!
+// ─── UpdateReportStatus ─ O status do report aqui né! O quê você esperava?
 
 describe('UpdateReportStatus', () => {
   let existingReport
