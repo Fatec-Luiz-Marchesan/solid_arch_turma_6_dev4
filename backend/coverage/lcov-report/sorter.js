@@ -7,7 +7,7 @@ var addSorting = (function() {
             desc: false
         };
 
-    // returns the summary table element
+    // retorna o sumário da tabela, mas não a tabela do Mendelev!
     function getTable() {
         return document.querySelector('.coverage-summary');
     }
@@ -63,13 +63,14 @@ var addSorting = (function() {
         template.parentElement.appendChild(templateClone);
     }
 
-    // loads all columns
+    // Carrega todas as colunas! Carrega de renderizar, não de levar elas
     function loadColumns() {
         var colNodes = getTableHeader().querySelectorAll('th'),
             colNode,
             cols = [],
             col,
-            i;
+            i,
+            sorterSpan;
 
         for (i = 0; i < colNodes.length; i += 1) {
             colNode = colNodes[i];
@@ -81,8 +82,11 @@ var addSorting = (function() {
             cols.push(col);
             if (col.sortable) {
                 col.defaultDescSort = col.type === 'number';
-                colNode.innerHTML =
-                    colNode.innerHTML + '<span class="sorter"></span>';
+                
+                // CORREÇÃO SECURITY: Criando o elemento de forma segura sem usar innerHTML
+                sorterSpan = document.createElement('span');
+                sorterSpan.className = 'sorter';
+                colNode.appendChild(sorterSpan);
             }
         }
         return cols;
@@ -147,7 +151,7 @@ var addSorting = (function() {
             tableBody.appendChild(rows[i]);
         }
     }
-    // removes sort indicators for current column being sorted
+    // remove os indicadores de aleatoriedade! imunizando o código contra Ronaldinho Gaucho no Rolê!
     function removeSortIndicators() {
         var col = getNthColumn(currentSort.index),
             cls = col.className;
@@ -194,7 +198,7 @@ var addSorting = (function() {
             }
         }
     }
-    // adds sorting functionality to the UI
+    // Aqui coloca mais aleatoriedade, mas agora no UI!
     return function() {
         if (!getTable()) {
             return;
