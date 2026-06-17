@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -81,7 +81,10 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,34 +92,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * Rotas de Report
+ * Rotas de Report - Como fizemos uma página de reports, ela tem que ter a rota dela!
+ * Ou você não entendeu ainda como funciona o MVC e o React?
  *
  * POST   /reports            - cria um reporte (autenticado)
  * GET    /reports            - lista reportes com filtros opcionais (autenticado)
+ * Metodo POST/GET você tem que pelo menos entender isso! Me diga que o professor Icoma não 
+ * usou tanto o POSTMAN pra nada?
  * PATCH  /reports/:id/status - atualiza o status de um reporte (autenticado)
  */
 &nbsp;
-const router = <span class="cstat-no" title="statement not covered" >require('express').Router()</span>
+const router = require('express').Router()
 &nbsp;
-const ReportController = <span class="cstat-no" title="statement not covered" >require('../controllers/ReportController')</span>
-const verifyToken      = <span class="cstat-no" title="statement not covered" >require('../helpers/check-token')</span>
+const ReportController = require('../controllers/ReportController')
+const verifyToken      = require('../helpers/check-token')
 &nbsp;
-<span class="cstat-no" title="statement not covered" >router.post('/',              verifyToken, ReportController.create)</span>
-<span class="cstat-no" title="statement not covered" >router.get('/',               verifyToken, ReportController.getAll)</span>
-<span class="cstat-no" title="statement not covered" >router.patch('/:id/status',   verifyToken, ReportController.updateStatus)</span>
+router.post('/',              verifyToken, ReportController.create)
+router.get('/',               verifyToken, ReportController.getAll)
+router.patch('/:id/status',   verifyToken, ReportController.updateStatus)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >module.exports = router</span>
+module.exports = router
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -124,7 +133,7 @@ const verifyToken      = <span class="cstat-no" title="statement not covered" >r
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-06-17T02:10:11.702Z
+                at 2026-06-17T03:04:22.908Z
             </div>
         <script src="../prettify.js"></script>
         <script>

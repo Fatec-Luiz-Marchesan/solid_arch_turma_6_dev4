@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,8 +120,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,31 +134,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * Use Case: CreateReport
+ * Use Case: CreateReport - aqui pra criar os report!
  *
  * Regra de negócio: um usuário autenticado abre um reporte sobre um pet
  * ou outro usuário. Não pode reportar a si mesmo.
@@ -167,8 +167,8 @@
  * e devolve o documento criado ou lança um Error com mensagem de negócio.
  */
 &nbsp;
-const { Report } = <span class="cstat-no" title="statement not covered" >require('../models/Report')</span>
-const ObjectId = <span class="cstat-no" title="statement not covered" >require('mongoose').Types.ObjectId</span>
+const { Report } = require('../models/Report')
+const ObjectId = require('mongoose').Types.ObjectId
 &nbsp;
 class CreateReport {
   /**
@@ -179,16 +179,16 @@ class CreateReport {
    * @param {string} data.targetId     - ObjectId do alvo (string)
    * @param {object} data.reporter     - { _id, name } do usuário autenticado
    */
-<span class="fstat-no" title="function not covered" >  as</span>ync execute({ reason, description, targetType, targetId, reporter }) {
+  async execute({ reason, description, targetType, targetId, reporter }) {
     // Não pode reportar a si mesmo
-<span class="cstat-no" title="statement not covered" >    if (</span>
+    if (
       targetType === 'user' &amp;&amp;
       reporter._id.toString() === targetId.toString()
     ) {
-<span class="cstat-no" title="statement not covered" >      throw new Error('Você não pode reportar a si mesmo.')</span>
+      throw new Error('Você não pode reportar a si mesmo.') // como assim você está tentando reportar a si mesmo?! Duuhh!
     }
-&nbsp;
-    const report = <span class="cstat-no" title="statement not covered" >new Report({</span>
+// aqui estão os detalhes do report
+    const report = new Report({
       reason,
       description,
       targetType,
@@ -199,11 +199,11 @@ class CreateReport {
       },
     })
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return report.save()</span>
+    return report.save()
   }
 }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >module.exports = new CreateReport()</span>
+//E aqui o module.exports, sempre tem em react, se não a coisa não funciona!
+module.exports = new CreateReport()
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -211,7 +211,7 @@ class CreateReport {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-06-17T02:10:11.702Z
+                at 2026-06-17T03:04:22.908Z
             </div>
         <script src="../prettify.js"></script>
         <script>

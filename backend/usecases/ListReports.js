@@ -1,6 +1,6 @@
 /**
  * Use Case: ListReports aqui mostra todos os reports do site neste
- * caso mostra todas as denúncias deitas pelos usuários
+ * caso mostra todas as denúncias feitas pelos usuários
  * Retorna todos os reportes do banco, ordenados pelo mais recente.
  * Filtragem opcional por targetType, targetId e status (passados como
  * objeto de filtros). A filtragem é só pra ajudar um pouquinho a facilitar
@@ -13,8 +13,8 @@ const ObjectId = require('mongoose').Types.ObjectId
 
 const TARGET_TYPES = ['pet', 'user']
 
-// Só aceita um valor se ele for uma string "primitiva" (não array, não
-// objeto) - é essa checagem que neutraliza payloads como {$ne: ...}.
+// Só aceita um valor se ele for uma string "primitiva" String das cavernas (não array, não
+// objeto lembra das aulas de ED?) - é essa checagem que neutraliza payloads como {$ne: ...}.
 const isPlainString = (value) => typeof value === 'string'
 
 class ListReports {
@@ -26,7 +26,7 @@ class ListReports {
    */
   async execute(filters = {}) {
     const query = {}
-// aqui tem um monte de if aninhado para procurar os reports pelo tipo
+
     if (
       isPlainString(filters.targetType) &&
       TARGET_TYPES.includes(filters.targetType)
@@ -42,10 +42,11 @@ class ListReports {
       query.status = filters.status
     }
 
-    return Report.find(query).sort('-createdAt')
+    // .lean() transforma o retorno em objetos JS puros, eliminando lixo de memória do Mongoose nos testes
+    // Ehhh saudade do Freeman do C! Mas fazer o quê! Tem que usar ele garbage collector mesmo!
+    return Report.find(query).sort({ createdAt: -1 }).lean()
   }
 }
 
-module.exports = new ListReports()
-
+// Exportando a classe para manter o padrão correto da Clean Arch (tá mais pra "Frescura Arch")
 module.exports = new ListReports()

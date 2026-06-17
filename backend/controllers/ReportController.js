@@ -104,6 +104,7 @@ module.exports = class ReportController {
 
       return res.status(200).json({ reports })
     } catch (err) {
+      console.error("DEBUG_ERRO_500:", error);
       return res.status(500).json({ message: err.message })
     }
   }
