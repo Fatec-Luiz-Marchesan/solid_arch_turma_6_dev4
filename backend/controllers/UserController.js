@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const UserWorkflowUseCase = require('../helpers/UserWorkflowUseCase');
+
 
 const User = require('../models/User')
 const AppConfig = require('../infra/config')
@@ -232,5 +234,25 @@ module.exports = class UserController {
     } catch (error) {
       res.status(500).json({ message: error })
     }
+  } 
+  static async updateWorkflow(req, res) {
+    try {
+      const userId = req.user._id; 
+      const { interests, bio } = req.body;
+
+      const workflowUseCase = new UserWorkflowUseCase(User);
+      
+      const updatedUser = await workflowUseCase.execute(userId, { interests, bio });
+
+      return res.status(200).json({
+        message: 'Fluxo de usuário atualizado com sucesso!',
+        user: updatedUser
+      });
+    } catch (error) {
+      return res.status(422).json({ message: error.message });
+    }
   }
-}
+
+} 
+
+module.exports = UserController; 
